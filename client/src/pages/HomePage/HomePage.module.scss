@@ -1,0 +1,52 @@
+@use '@/app/styles/variables/base' as *;
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  border-radius: $radius-md;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.item {
+  background: var(--primary-color);
+  color: var(--text-on-primary);
+  padding: 1.5rem 2rem;
+  border-radius: $radius-md;
+  min-height: 180px;
+  box-shadow: $shadow-lg;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background-color 0.4s ease, color 0.4s ease;
+
+  &:hover {
+    background: var(--accent-color);
+    cursor: pointer;
+  }
+}
+
+.description {
+  margin-top: 0.8rem;
+  font-weight: 400;
+  font-size: 1rem;
+  opacity: 0.85;
+}
