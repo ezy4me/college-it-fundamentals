@@ -1,7 +1,9 @@
+@use '@/app/styles/variables/base' as *;
+
 .wrapper {
   display: flex;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: var(--bg-color);
   box-sizing: border-box;
 }
 
@@ -20,8 +22,10 @@
 }
 
 .content {
-  border-radius: 12px;
+  border-radius: $radius-md;
   padding: 0 1rem;
   flex: 1;
   overflow-y: auto;
+  background-color: var(--surface-color, #fff); 
+  box-shadow: $shadow-sm;
 }
