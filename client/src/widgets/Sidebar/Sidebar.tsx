@@ -1,68 +1,28 @@
 import styles from './Sidebar.module.scss';
-import { sections, type Section, type SectionTab } from '@/shared/const/sections';
-import { NavLink } from 'react-router-dom';
+import { sections } from '@/shared/const/sections';
+import { ToggleSection } from '@/features';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import clsx from 'clsx';
 
 type Props = {
   isCollapsed: boolean;
   onToggle: () => void;
 };
 
-const tabLabels: Record<SectionTab, string> = {
-  lectures: 'Лекции',
-  practices: 'Практики',
-  labs: 'Лаб. работы',
-};
-
 export const Sidebar = ({ isCollapsed, onToggle }: Props) => {
   return (
-    <aside className={`${styles.sidebar} ${isCollapsed ? styles.collapsed : ''}`}>
+    <aside className={clsx(styles.sidebar, { [styles.collapsed]: isCollapsed })}>
       <div className={styles.sidebarWrapper}>
-        <button className={styles.toggleBtn} onClick={onToggle}>
-          {isCollapsed ? '>' : '<'}
+        <button className={styles.toggleBtn} onClick={onToggle} aria-label="Toggle Sidebar">
+          {isCollapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
         </button>
+
         <nav className={styles.nav}>
           {sections.map((section) => (
-            <SectionNav key={section.id} section={section} isCollapsed={isCollapsed} />
+            <ToggleSection key={section.id} section={section} isCollapsed={isCollapsed} />
           ))}
         </nav>
       </div>
     </aside>
-  );
-};
-
-const SectionNav = ({
-  section,
-  isCollapsed,
-}: {
-  section: Section;
-  isCollapsed: boolean;
-}) => {
-  return (
-    <div className={styles.section}>
-      <NavLink
-        to={`/${section.id}`}
-        end
-        className={({ isActive }) =>
-          isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
-        }
-      >
-        <span className={styles.icon}>{section.icon}</span>
-        {!isCollapsed && <span className={styles.label}>{section.title}</span>}
-      </NavLink>
-
-      {!isCollapsed &&
-        Object.entries(section.tabs).map(([tab, path]) => (
-          <NavLink
-            key={tab}
-            to={path}
-            end
-            className={({ isActive }) =>
-              isActive ? `${styles.subNavItem} ${styles.active}` : styles.subNavItem
-            }
-          >
-            {tabLabels[tab as SectionTab]}
-          </NavLink>
-        ))}
-    </div>
   );
 };

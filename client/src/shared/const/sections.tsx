@@ -1,9 +1,12 @@
+import { Brain, Database, Laptop2 } from 'lucide-react';
+import type { ReactNode } from 'react';
+
 export type SectionTab = 'lectures' | 'practices' | 'labs';
 
 export interface Section {
   id: string;
   title: string;
-  icon: string;
+  icon: () => ReactNode; 
   tabs: Partial<Record<SectionTab, string>>;
 }
 
@@ -11,7 +14,7 @@ export const sections: Section[] = [
   {
     id: 'oaip',
     title: 'ОАиП',
-    icon: '💻',
+    icon: () => <Laptop2 size={18} />,
     tabs: {
       lectures: '/oaip/lectures',
       practices: '/oaip/practices',
@@ -21,7 +24,7 @@ export const sections: Section[] = [
   {
     id: 'opbd',
     title: 'ОПБД',
-    icon: '🗄️',
+    icon: () => <Database size={18} />,
     tabs: {
       lectures: '/opbd/lectures',
       labs: '/opbd/labs',
@@ -30,7 +33,7 @@ export const sections: Section[] = [
   {
     id: 'pirvp',
     title: 'ПиРВП',
-    icon: '🧠',
+    icon: () => <Brain size={18} />,
     tabs: {
       lectures: '/pirvp/lectures',
       practices: '/pirvp/practices',
