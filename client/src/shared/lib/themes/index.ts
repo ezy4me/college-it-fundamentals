@@ -10,6 +10,7 @@ export const lightTheme = {
   '--hover-bg': 'rgba(255, 255, 255, 0.1)',
   '--active-bg': 'rgba(0, 0, 0, 0.02)',
   '--surface-color': '#ffffff',
+  '--border-color': '#cccccc',  
 };
 
 export const darkTheme = {
@@ -22,6 +23,7 @@ export const darkTheme = {
   '--hover-bg': 'rgba(255, 255, 255, 0.1)',
   '--active-bg': 'rgba(255, 255, 255, 0.1)',
   '--surface-color': '#242424',
+  '--border-color': '#444444', 
 };
 
 

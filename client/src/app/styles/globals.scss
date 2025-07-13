@@ -9,6 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -26,7 +27,7 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: var(--text-color);
-  margin-bottom: 0.5em;
+  margin-bottom: 0;
 }
 
 ul, ol {

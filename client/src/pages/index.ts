@@ -1,2 +1,3 @@
-export * from './HomePage/HomePage';
-export * from './NotFound/NotFound';
+export * from './HomePage';
+export * from './NotFound';
+export * from './SubjectPage';

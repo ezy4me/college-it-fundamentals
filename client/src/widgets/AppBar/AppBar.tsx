@@ -5,7 +5,7 @@ export const AppBar = () => {
   return (
     <header className={styles.appbar}>
       <div className={styles.headerWrapper}>
-        <div className={styles.title}>Header Content</div>
+        <div className={styles.title}></div>
         <ThemeSwitcher />
       </div>
     </header>
