@@ -1,32 +1,37 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { MarkdownRenderer } from "@/features/RenderMarkdown";
-import { fetchMarkdown } from "@/shared/lib/utils/fetchMarkdown";
-import { ErrorMessage } from "@/entities/ErrorMessage/ui/ErrorMessage";
-import { LoadingMessage } from "@/entities/LoadingMessage/ui/LoadingMessage";
-import styles from "./LecturePage.module.scss";
+import { useEffect, useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
+import { MarkdownRenderer, MarkdownToc } from '@/features/RenderMarkdown';
+import { fetchMarkdown } from '@/shared/lib/utils/fetchMarkdown';
+import { extractHeadings, type HeadingInfo } from '@/features/RenderMarkdown/lib/extractHeadings';
+import { ErrorMessage } from '@/entities/ErrorMessage/ui/ErrorMessage';
+import { LoadingMessage } from '@/entities/LoadingMessage/ui/LoadingMessage';
+import createSlugify from '@/shared/lib/utils/slugify';
+import styles from './LecturePage.module.scss';
 
 export const LecturePage = () => {
-  const { id, tab, materialId } = useParams<{
-    id: string;
-    tab: string;
-    materialId: string;
-  }>();
-
+  const { id, tab, materialId } = useParams<{ id: string; tab: string; materialId: string }>();
   const [markdown, setMarkdown] = useState<string | null>(null);
+  const [headings, setHeadings] = useState<HeadingInfo[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  const slugifyRef = useRef(createSlugify());
 
   useEffect(() => {
     if (!id || !tab || !materialId) {
-      setError("Некорректный адрес страницы.");
+      setError('Некорректный адрес страницы.');
       return;
     }
 
     const path = `/content/${id}/${tab}/${materialId}.md`;
 
     fetchMarkdown(path)
-      .then(setMarkdown)
-      .catch((err) => setError(err.message || "Неизвестная ошибка"));
+      .then((md) => {
+        setMarkdown(md);
+
+        const extracted = extractHeadings(md, slugifyRef.current);
+        setHeadings(extracted);
+      })
+      .catch((err) => setError(err.message || 'Неизвестная ошибка'));
   }, [id, tab, materialId]);
 
   if (error) return <ErrorMessage>{error}</ErrorMessage>;
@@ -34,7 +39,8 @@ export const LecturePage = () => {
 
   return (
     <div className={styles.page}>
-      <MarkdownRenderer markdown={markdown} />
+      <MarkdownRenderer markdown={markdown} headings={headings} />
+      <MarkdownToc headings={headings} />
     </div>
   );
 };

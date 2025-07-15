@@ -1,7 +1,9 @@
 @use "@/app/styles/variables/base" as *;
 
 .page {
-  max-width: 900px;
+  display: flex;
+  gap: 1rem;
+  max-width: 1140px;
   margin: 2rem auto;
   padding: 1.5rem 2rem;
   font-family: $font-family-base;
@@ -9,6 +11,12 @@
   background-color: var(--surface-color);
   border-radius: $radius-md;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .page {
+    flex-direction: column;
+  }
 }
 
 h1 {
