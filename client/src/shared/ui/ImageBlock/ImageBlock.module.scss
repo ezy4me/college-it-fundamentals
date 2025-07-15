@@ -1,0 +1,23 @@
+@use "@/app/styles/variables/base" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+  gap: 0.5rem;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-md;
+}
+
+.caption {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.75;
+  text-align: center;
+}

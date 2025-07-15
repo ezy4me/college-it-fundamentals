@@ -1,0 +1,40 @@
+@use "@/app/styles/variables/base" as *;
+
+.loading {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 1.5rem 2rem;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--text-color);
+  background-color: var(--surface-color);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+  user-select: none;
+  outline-offset: 2px;
+
+  &:focus {
+    outline: 2px solid var(--primary-color);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

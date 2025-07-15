@@ -1,0 +1,28 @@
+@use "@/app/styles/variables/base" as *;
+
+.error {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 1.5rem 2rem;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--error-text);
+  background-color: var(--error-bg);
+  border: 1.5px solid var(--error-border);
+  user-select: none;
+  outline-offset: 2px;
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--error-text);
+}
+
+.text {
+  flex: 1;
+  line-height: 1.4;
+}

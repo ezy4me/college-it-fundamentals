@@ -1,0 +1,52 @@
+@use "@/app/styles/variables/base" as *;
+
+.code {
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.wrapper {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.code {
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  padding-top: 3rem;
+}
+
+.copyBtn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: #424242;
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: $radius-sm;
+  padding: 0.3em 0.6em;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--primary-color-hover);
+  }
+
+ 
+}
+
