@@ -7,6 +7,7 @@ import { ErrorMessage } from '@/entities/ErrorMessage/ui/ErrorMessage';
 import { LoadingMessage } from '@/entities/LoadingMessage/ui/LoadingMessage';
 import createSlugify from '@/shared/lib/utils/slugify';
 import styles from './LecturePage.module.scss';
+import { useAnchorScroll } from "@/shared/lib/hooks/useAnchorScroll";
 
 export const LecturePage = () => {
   const { id, tab, materialId } = useParams<{ id: string; tab: string; materialId: string }>();
@@ -15,6 +16,8 @@ export const LecturePage = () => {
   const [error, setError] = useState<string | null>(null);
 
   const slugifyRef = useRef(createSlugify());
+
+  useAnchorScroll();
 
   useEffect(() => {
     if (!id || !tab || !materialId) {

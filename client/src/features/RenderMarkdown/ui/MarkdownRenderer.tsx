@@ -1,10 +1,10 @@
-import React from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { CodeBlock } from "@/shared/ui/CodeBlock";
-import { ImageBlock } from "@/shared/ui/ImageBlock";
-import styles from "./MarkdownRenderer.module.scss";
-import type { HeadingInfo } from "../lib/extractHeadings";
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { CodeBlock } from '@/shared/ui/CodeBlock';
+import { ImageBlock } from '@/shared/ui/ImageBlock';
+import styles from './MarkdownRenderer.module.scss';
+import type { HeadingInfo } from '../lib/extractHeadings';
 
 interface Props {
   markdown: string;
@@ -12,19 +12,20 @@ interface Props {
 }
 
 function getText(children: React.ReactNode): string {
-  if (typeof children === "string") return children;
+  if (typeof children === 'string') return children;
 
   if (Array.isArray(children)) {
-    return children.map(getText).join("");
+    return children.map(getText).join('');
   }
 
   if (React.isValidElement(children)) {
     const el = children as React.ReactElement<{ children?: React.ReactNode }>;
-    return getText(el.props.children ?? "");
+    return getText(el.props.children ?? '');
   }
 
-  return "";
+  return '';
 }
+
 
 function getHeadingIdByText(
   level: number,
@@ -73,7 +74,8 @@ export const MarkdownRenderer = ({ markdown, headings }: Props) => {
           p: (props) => <p className={styles.paragraph} {...props} />,
           code: CodeBlock,
           img: ImageBlock,
-        }}>
+        }}
+      >
         {markdown}
       </ReactMarkdown>
     </div>
