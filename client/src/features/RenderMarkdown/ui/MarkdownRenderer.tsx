@@ -71,9 +71,9 @@ export const MarkdownRenderer = ({ markdown, headings }: Props) => {
               </h3>
             );
           },
-          p: (props) => <p className={styles.paragraph} {...props} />,
-          code: CodeBlock,
           img: ImageBlock,
+          p: (props) => <div className={styles.paragraph} {...props} />,
+          code: CodeBlock,
         }}
       >
         {markdown}

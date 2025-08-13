@@ -1,41 +1,34 @@
-@use "@/app/styles/variables/base" as *;
-
-.code {
-  border-radius: $radius-md;
-  box-shadow: $shadow-sm;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  overflow-x: auto;
-  border: 1px solid var(--border-color);
-  padding: 1rem;
-  margin: 1.5rem 0;
-}
+@use '@/app/styles/variables/base' as *;
 
 .wrapper {
   position: relative;
   margin: 1.5rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  overflow: hidden;
 }
 
-.code {
-  border-radius: $radius-md;
-  box-shadow: $shadow-sm;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  overflow-x: auto;
-  border: 1px solid var(--border-color);
-  padding: 1rem;
-  padding-top: 3rem;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e1e1e;
+  color: #eee;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.6rem 0.6rem 0rem 0.6rem;
+}
+
+.language {
+  opacity: 0.8;
 }
 
 .copyBtn {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background: #424242;
-  color: var(--text-on-primary);
+  background: transparent;
+  color: #ccc;
   border: none;
   border-radius: $radius-sm;
-  padding: 0.3em 0.6em;
+  padding: 0.4em;
   font-size: 0.75rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -44,9 +37,14 @@
   justify-content: center;
 
   &:hover {
-    background-color: var(--primary-color-hover);
+    background-color: rgba(255, 255, 255, 0.1);
   }
-
- 
 }
 
+.code {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  padding: 1rem;
+  background: transparent;
+}
