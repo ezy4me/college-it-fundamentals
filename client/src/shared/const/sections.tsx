@@ -66,14 +66,11 @@ export const sections: Section[] = [
     icon: () => <Brain size={18} />,
     tabs: {
       lectures: '/pirvp/lectures',
-      practices: '/pirvp/practices',
     },
     content: {
       lectures: [
-        { id: 'lec1', title: 'Введение в ПиРВП' },
-      ],
-      practices: [
-        { id: 'pr1', title: 'Практика 1: Анализ алгоритмов' },
+        { id: 'lec1', title: 'Введение в веб-технологии' },
+        { id: 'lec2', title: 'Работа браузера и семантический HTML' },
       ],
     },
   },

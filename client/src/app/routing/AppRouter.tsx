@@ -21,8 +21,6 @@ export const AppRouter = () => {
         <Route path="/:id/labs" element={<SubjectPage />} />
 
         <Route path="/:id/:tab/:materialId" element={<LecturePage />} />
-        <Route path="/:id/:tab/:materialId" element={<LecturePage />} />
-        <Route path="/:id/:tab/:materialId" element={<LecturePage />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

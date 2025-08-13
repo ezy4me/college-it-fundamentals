@@ -26,6 +26,7 @@ export const LecturePage = () => {
     }
 
     const path = `/content/${id}/${tab}/${materialId}.md`;
+    console.log(path);
 
     fetchMarkdown(path)
       .then((md) => {
