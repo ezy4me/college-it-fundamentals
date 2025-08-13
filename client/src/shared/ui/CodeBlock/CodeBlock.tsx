@@ -2,9 +2,11 @@ import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript';
-import python from 'react-syntax-highlighter/dist/esm/languages/hljs/python';
-import csharp from 'react-syntax-highlighter/dist/esm/languages/hljs/csharp';
 import typescript from 'react-syntax-highlighter/dist/esm/languages/hljs/typescript';
+import css from 'react-syntax-highlighter/dist/esm/languages/hljs/css';
+import bash from 'react-syntax-highlighter/dist/esm/languages/hljs/bash';
+import html from 'react-syntax-highlighter/dist/esm/languages/hljs/xml'; 
+import csharp from 'react-syntax-highlighter/dist/esm/languages/hljs/csharp';
 
 import { useState, useEffect } from 'react';
 import type { FC, ReactNode } from 'react';
@@ -15,8 +17,12 @@ SyntaxHighlighter.registerLanguage('js', js);
 SyntaxHighlighter.registerLanguage('javascript', js);
 SyntaxHighlighter.registerLanguage('ts', typescript);
 SyntaxHighlighter.registerLanguage('typescript', typescript);
-SyntaxHighlighter.registerLanguage('python', python);
+SyntaxHighlighter.registerLanguage('css', css);
+SyntaxHighlighter.registerLanguage('bash', bash);
+SyntaxHighlighter.registerLanguage('html', html);
+SyntaxHighlighter.registerLanguage('xml', html); 
 SyntaxHighlighter.registerLanguage('csharp', csharp);
+SyntaxHighlighter.registerLanguage('cs', csharp);
 
 interface CodeBlockProps {
   className?: string;
@@ -28,8 +34,12 @@ const LANGUAGE_LABELS: Record<string, string> = {
   javascript: 'JavaScript',
   ts: 'TypeScript',
   typescript: 'TypeScript',
-  python: 'Python',
+  css: 'CSS',
+  html: 'HTML',
+  xml: 'HTML',
+  bash: 'Bash',
   csharp: 'C#',
+  cs: 'C#',
 };
 
 export const CodeBlock: FC<CodeBlockProps> = ({ className = '', children, ...props }) => {
