@@ -1,6 +1,6 @@
 import styles from './Sidebar.module.scss';
 import { sections } from '@/shared/const/sections';
-import { ToggleSection } from '@/features';
+import { ToggleSection } from '@/features/ToggleSection';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import clsx from 'clsx';
 

@@ -1,5 +1,5 @@
 import { ThemeSwitcher } from '@/shared';
-import { Breadcrumbs } from '@/features';
+import { Breadcrumbs } from '@/features/ToggleSection';
 import styles from './AppBar.module.scss';
 
 export const AppBar = () => {

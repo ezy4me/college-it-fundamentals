@@ -1,7 +1,7 @@
-import { Brain, Database, Laptop2 } from 'lucide-react';
-import type { ReactNode } from 'react';
+import { Brain, Database, Home, Laptop2 } from "lucide-react";
+import type { ReactNode } from "react";
 
-export type SectionTab = 'lectures' | 'practices' | 'labs';
+export type SectionTab = "lectures" | "practices" | "labs";
 
 export interface MaterialItem {
   id: string;
@@ -13,64 +13,69 @@ export interface Section {
   title: string;
   icon: () => ReactNode;
   tabs: Partial<Record<SectionTab, string>>;
-  content: Partial<Record<SectionTab, MaterialItem[]>>; 
+  content: Partial<Record<SectionTab, MaterialItem[]>>;
 }
 
 export const sections: Section[] = [
   {
-    id: 'oaip',
-    title: 'ОАиП',
+    id: "/",
+    title: "Главная",
+    icon: () => <Home size={18} />,
+    tabs: {},
+    content: {},
+  },
+  {
+    id: "oaip",
+    title: "ОАиП",
     icon: () => <Laptop2 size={18} />,
     tabs: {
-      lectures: '/oaip/lectures',
-      practices: '/oaip/practices',
-      labs: '/oaip/labs',
+      lectures: "/oaip/lectures",
+      practices: "/oaip/practices",
+      labs: "/oaip/labs",
     },
     content: {
       lectures: [
-        { id: 'lec1', title: 'Введение в ОАиП' },
-        { id: 'lec2', title: 'Основы программирования' },
-        { id: 'lec3', title: 'Объектно-ориентированное программирование' },
+        { id: "lec1", title: "Введение в ОАиП" },
+        { id: "lec2", title: "Основы программирования" },
+        { id: "lec3", title: "Объектно-ориентированное программирование" },
       ],
       practices: [
-        { id: 'pr1', title: 'Практика 1: Установка окружения' },
-        { id: 'pr2', title: 'Практика 2: Написание простого приложения' },
+        { id: "pr1", title: "Практика 1: Установка окружения" },
+        { id: "pr2", title: "Практика 2: Написание простого приложения" },
       ],
       labs: [
-        { id: 'lab1', title: 'Лабораторная 1: Классы и объекты' },
-        { id: 'lab2', title: 'Лабораторная 2: Наследование' },
+        { id: "lab1", title: "Лабораторная 1: Классы и объекты" },
+        { id: "lab2", title: "Лабораторная 2: Наследование" },
       ],
     },
   },
   {
-    id: 'opbd',
-    title: 'ОПБД',
+    id: "opbd",
+    title: "ОПБД",
     icon: () => <Database size={18} />,
     tabs: {
-      lectures: '/opbd/lectures',
-      labs: '/opbd/labs',
+      lectures: "/opbd/lectures",
+      labs: "/opbd/labs",
     },
     content: {
       lectures: [
-        { id: 'lec1', title: 'Введение в базы данных' },
-        { id: 'lec2', title: 'Моделирование данных' },
+        { id: "lec1", title: "Введение в базы данных" },
+        { id: "lec2", title: "Моделирование данных" },
       ],
-      labs: [
-        { id: 'lab1', title: 'Лабораторная 1: Создание таблиц' },
-      ],
+      labs: [{ id: "lab1", title: "Лабораторная 1: Создание таблиц" }],
     },
   },
   {
-    id: 'pirvp',
-    title: 'ПиРВП',
+    id: "pirvp",
+    title: "ПиРВП",
     icon: () => <Brain size={18} />,
     tabs: {
-      lectures: '/pirvp/lectures',
+      lectures: "/pirvp/lectures",
     },
     content: {
       lectures: [
-        { id: 'lec1', title: 'Введение в веб-технологии' },
-        { id: 'lec2', title: 'Работа браузера и семантический HTML' },
+        { id: "lec1", title: "Введение в веб-технологии" },
+        { id: "lec2", title: "Работа браузера и семантический HTML" },
       ],
     },
   },

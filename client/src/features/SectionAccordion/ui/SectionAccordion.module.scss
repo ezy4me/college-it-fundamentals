@@ -1,0 +1,77 @@
+@use "@/app/styles/variables/base" as *;
+
+.sectionCard {
+  background: var(--surface-color);
+  color: var(--text-color);
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: var(--hover-bg);
+  }
+
+  .sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+
+    .icon {
+      margin-right: 0.75rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .sectionTitle {
+      flex: 1;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .expandIndicator {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+
+  .tabs {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .tabBlock {
+      .tabTitle {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .materialList {
+        list-style: disc;
+        margin: 0 0 0 1.25rem;
+        padding: 0;
+
+        .materialItem {
+          margin-bottom: 0.3rem;
+          font-weight: 500;
+          color: var(--text-color);
+
+          a {
+            color: var(--text-color);
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

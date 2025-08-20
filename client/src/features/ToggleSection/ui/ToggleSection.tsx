@@ -25,6 +25,8 @@ export const ToggleSection = ({ section, isCollapsed }: Props) => {
     }
   };
 
+  const sectionPath = section.id === '/' ? '/' : `/${section.id}`;
+
   return (
     <div className={styles.section}>
       <div
@@ -35,7 +37,7 @@ export const ToggleSection = ({ section, isCollapsed }: Props) => {
         onKeyDown={onKeyDown}
       >
         <NavLink
-          to={`/${section.id}`}
+          to={sectionPath}
           end
           className={({ isActive }) =>
             isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
@@ -46,12 +48,12 @@ export const ToggleSection = ({ section, isCollapsed }: Props) => {
         </NavLink>
       </div>
 
-      {!isCollapsed && isOpen && (
+      {!isCollapsed && isOpen && section.id !== '/' && (
         <div className={styles.subItems}>
           {Object.entries(section.tabs).map(([tab, path]) => (
             <NavLink
               key={tab}
-              to={path}
+              to={path!}
               end
               className={({ isActive }) =>
                 isActive ? `${styles.subNavItem} ${styles.active}` : styles.subNavItem
