@@ -7,10 +7,12 @@ body {
 
 body {
   font-family: $font-family-base;
+  font-optical-sizing: auto;
   background-color: var(--bg-color);
   color: var(--text-color);
-  line-height: 1.5;
-  font-size: 16px;
+  line-height: 1.7;
+  font-style: normal;
+  font-size: 17px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
@@ -43,26 +45,8 @@ h6 {
 ul,
 ol {
   list-style-position: inside;
-  margin-bottom: 1em;
+  margin: 0;
 }
-
-// button {
-//   font-family: inherit;
-//   font-size: 1rem;
-//   cursor: pointer;
-//   background-color: var(--primary-color);
-//   color: white;
-//   border: none;
-//   padding: 0.5em 1em;
-//   border-radius: $radius-sm;
-//   transition: background-color 0.3s ease;
-
-//   &:hover,
-//   &:focus {
-//     background-color: var(--secondary-color);
-//     outline: none;
-//   }
-// }
 
 input,
 textarea {

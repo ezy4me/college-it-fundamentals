@@ -1,10 +1,10 @@
-@use '@/app/styles/variables/base' as *;
+@use "@/app/styles/variables/base" as *;
 
 .appbar {
   position: sticky;
   top: 0;
   background-color: var(--bg-color);
-  z-index: 30;
+  z-index: 999;
   padding: 1rem 1rem 0 1rem;
 }
 
@@ -17,6 +17,24 @@
   box-shadow: $shadow-sm;
   display: flex;
   align-items: center;
+
   justify-content: space-between;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .burgerBtn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+}

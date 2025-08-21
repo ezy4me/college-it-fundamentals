@@ -44,6 +44,7 @@ export const LecturePage = () => {
   return (
     <div className={styles.page}>
       <MarkdownRenderer markdown={markdown} headings={headings} />
+      <hr className={styles.pageDivider}/>
       <MarkdownToc headings={headings} />
     </div>
   );

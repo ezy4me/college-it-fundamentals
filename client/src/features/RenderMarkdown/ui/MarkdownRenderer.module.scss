@@ -2,36 +2,59 @@
 
 .markdown {
   font-family: $font-family-base;
-  line-height: 1.6;
+  line-height: 1.75;
   color: var(--text-color);
   word-break: break-word;
+  font-size: 1rem;
 }
 
-.h1 {
-  font-size: 2rem;
-  margin: 2rem 0 1rem;
+.markdownH1 {
+  text-align: center;
+  font-size: 1.75rem;
+  margin: 1rem 0;
   color: var(--primary-color);
+  font-weight: 700;
 }
 
-.h2 {
+.markdownH2 {
   font-size: 1.5rem;
-  margin: 1.5rem 0 1rem;
+  // text-align: center;
+  margin: 1rem 0;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.markdownH3 {
+  font-size: 1.5rem;
+  // text-align: center;
+  margin: 1rem 0;
+  font-weight: 600;
   color: var(--primary-color);
 }
 
-.paragraph {
+.markdownParagraph {
   font-size: 1rem;
   margin: 1rem 0;
 }
 
-hr {
+.markdownHr {
   background-color: var(--border-color);
-  border: 0 none;
-  color: var(--border-color);
+  border: none;
   height: 1px;
+  margin: 2rem 0;
 }
 
-table {
+.markdownList {
+  margin: 1rem 0 1rem 1.5rem;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.markdownListItem {
+  margin-bottom: 0.5rem;
+}
+
+.markdownTable {
   width: 100%;
   border-collapse: collapse;
   font-family: $font-family-base;
@@ -40,37 +63,75 @@ table {
   box-shadow: $shadow-sm;
   border-radius: $radius-md;
   overflow: hidden;
+  margin: 1.5rem 0;
+}
 
-  th,
-  td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border-color);
-    text-align: left;
-  }
+.markdownTable th,
+.markdownTable td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+}
 
-  tr:last-child th,
-  tr:last-child td {
-    border-bottom: none;
-  }
+.markdownTable tr:last-child th,
+.markdownTable tr:last-child td {
+  border-bottom: none;
+}
 
-  th {
-    background-color: var(--primary-color);
-    color: var(--text-on-primary);
-    font-weight: 600;
-    text-align: start;
-  }
+.markdownTable th {
+  background-color: var(--primary-color);
+  color: var(--text-on-primary);
+  font-weight: 600;
+  text-align: start;
+}
 
-  tr:nth-child(even) {
-    background-color: var(--hover-bg);
-  }
+.markdownTable tr:nth-child(even) {
+  background-color: var(--hover-bg);
+}
 
-  tr:hover {
-    background-color: var(--active-bg);
-  }
+.markdownTable tr:hover {
+  background-color: var(--active-bg);
+}
 
-  caption {
-    caption-side: top;
-    font-weight: 600;
-    padding: 8px;
+.markdownTableCaption {
+  caption-side: top;
+  font-weight: 600;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+.markdownLink {
+  color: var(--link-color);
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-color);
+    outline: none;
   }
+}
+
+.markdownBlockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.markdownPre {
+  background-color: var(--hover-bg);
+  padding: 1rem;
+  border-radius: $radius-md;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.markdownDivider {
+  border: none;                    
+  height: 1px;                       
+  background-color: var(--border-color); 
+  margin: 2rem 0;                     
+  border-radius: $radius-sm;          
+  opacity: 0.6;                       
 }

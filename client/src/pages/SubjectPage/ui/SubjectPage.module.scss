@@ -91,6 +91,9 @@
   }
 
   .materialIndex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
     color: var(--accent-color);
     min-width: 1.5rem;

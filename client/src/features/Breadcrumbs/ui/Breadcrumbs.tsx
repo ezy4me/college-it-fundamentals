@@ -48,7 +48,7 @@ export const Breadcrumbs = () => {
     <nav className={styles.breadcrumbs}>
       {crumbs.map((crumb, index) => (
         <span key={crumb.to} className={styles.crumb}>
-          <Link to={crumb.to}>{crumb.label}</Link>
+          <Link to={crumb.to} title={crumb.label}>{crumb.label}</Link>
           {index < crumbs.length - 1 && <span className={styles.separator}> /</span>}
         </span>
       ))}

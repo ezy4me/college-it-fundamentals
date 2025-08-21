@@ -18,6 +18,8 @@ export const lightTheme = {
   "--error-text": "#b00020",
   "--error-border": "#f5c6cb",
   "--error-shadow": "rgba(176, 0, 32, 0.2)",
+
+  "--toggle-ball-color": "#5626C4"
 };
 
 export const darkTheme = {
@@ -38,6 +40,8 @@ export const darkTheme = {
   "--error-text": "#ff6b6b",
   "--error-border": "#7f2a2a",
   "--error-shadow": "rgba(255, 107, 107, 0.4)",
+
+  "--toggle-ball-color": "#E60576"
 };
 
 export const themes = {

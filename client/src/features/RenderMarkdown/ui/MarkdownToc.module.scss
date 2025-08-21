@@ -1,79 +1,118 @@
+@use "@/app/styles/variables/base" as *;
+
 .tocWrapper {
-    width: 220px;
-    font-size: 0.8rem;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--text-color);
-    border-left: 1px solid var(--border-color);
-    background: var(--background-color);
-    user-select: none;
-    flex-shrink: 0;
-    padding: 1rem 0 1rem 1rem;
-    transition: background-color 0.3s ease;
-    position: relative;
+  width: 220px;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  background: var(--surface-color);
+  user-select: none;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  position: relative;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 1000;
+    width: 75%;
+    max-width: 300px;
+    box-shadow: -4px 0 12px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+    opacity: 0;
+    background: var(--surface-color);
+  }
 }
 
 .toggleButton {
-    width: 100%;
-    background: var(--primary-color);
-    color: var(--button-text-color);
-    border: none;
-    padding: 0.4rem 0.75rem;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 6px;
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
+  width: 100%;
+  background: var(--primary-color);
+  color: var(--text-on-primary);
+  border: none;
+  padding: 0.4rem 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 
-    &:hover,
-    &:focus {
-        background: var(--accent-color);
-        outline: none;
-    }
+  &:hover,
+  &:focus {
+    background: var(--accent-color);
+    outline: none;
+  }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 1100;
+  }
 }
 
 .toc {
-    max-height: 60vh;
-    overflow-y: auto;
-    transition: opacity 0.3s ease;
-    position: sticky;
-    top: 5rem;
-    right: 0;
+  max-height: 60vh;
+  overflow-y: auto;
+  transition: opacity 0.3s ease;
+  position: sticky;
+  top: 5rem;
 
-    > ul {
-        list-style: none;
-    }
+  @media (max-width: 768px) {
+    max-height: 90vh;
+    padding: 2rem 1rem 1rem;
+    position: relative;
+    top: 0;
+  }
 }
 
-.closed ul {
-    display: none;
+.open {
+  opacity: 1;
+
+  @media (max-width: 768px) {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-ul {
-    padding-left: 0;
-    margin: 0;
+.closed {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 }
 
-li {
-    margin-bottom: 0.4rem;
+.tocList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    a {
-        color: var(--link-color);
-        text-decoration: none;
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        border-radius: 4px;
-        padding: 2px 6px;
-        transition: background-color 0.2s ease;
+.tocItem {
+  margin-bottom: 0.4rem;
+}
 
-        &:hover,
-        &:focus {
-            background-color: var(--accent-light);
-            outline: none;
-        }
-    }
+.tocLink {
+  color: var(--link-color);
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 4px;
+  padding: 2px 6px;
+  transition: background-color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: var(--hover-bg);
+    outline: none;
+  }
 }

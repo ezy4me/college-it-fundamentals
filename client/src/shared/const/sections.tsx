@@ -34,19 +34,9 @@ export const sections: Section[] = [
       labs: "/oaip/labs",
     },
     content: {
-      lectures: [
-        { id: "lec1", title: "Введение в ОАиП" },
-        { id: "lec2", title: "Основы программирования" },
-        { id: "lec3", title: "Объектно-ориентированное программирование" },
-      ],
-      practices: [
-        { id: "pr1", title: "Практика 1: Установка окружения" },
-        { id: "pr2", title: "Практика 2: Написание простого приложения" },
-      ],
-      labs: [
-        { id: "lab1", title: "Лабораторная 1: Классы и объекты" },
-        { id: "lab2", title: "Лабораторная 2: Наследование" },
-      ],
+      lectures: [],
+      practices: [],
+      labs: [],
     },
   },
   {
@@ -58,11 +48,8 @@ export const sections: Section[] = [
       labs: "/opbd/labs",
     },
     content: {
-      lectures: [
-        { id: "lec1", title: "Введение в базы данных" },
-        { id: "lec2", title: "Моделирование данных" },
-      ],
-      labs: [{ id: "lab1", title: "Лабораторная 1: Создание таблиц" }],
+      lectures: [],
+      labs: [],
     },
   },
   {
@@ -71,11 +58,12 @@ export const sections: Section[] = [
     icon: () => <Brain size={18} />,
     tabs: {
       lectures: "/pirvp/lectures",
+      labs: "/pirvp/labs",
     },
     content: {
       lectures: [
-        { id: "lec1", title: "Введение в веб-технологии" },
-        { id: "lec2", title: "Работа браузера и семантический HTML" },
+        { id: "lec1", title: "Введение в веб-технологии [1]" },
+        { id: "lec2", title: "Работа браузера и семантический HTML [2]" },
       ],
     },
   },

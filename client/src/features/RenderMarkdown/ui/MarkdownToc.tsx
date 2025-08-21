@@ -13,7 +13,6 @@ const truncate = (text: string, maxLength = 40) =>
 export const MarkdownToc = ({ headings }: Props) => {
   const [isOpen, setIsOpen] = useState(true);
 
-
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
       e.preventDefault();
@@ -32,29 +31,36 @@ export const MarkdownToc = ({ headings }: Props) => {
   );
 
   return (
-    <nav className={styles.tocWrapper}>
+    <aside className={styles.tocWrapper} aria-label="Оглавление">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={styles.toggleButton}
         aria-expanded={isOpen}
         aria-label={isOpen ? "Скрыть оглавление" : "Показать оглавление"}>
-        {isOpen ? <ChevronDown size={18} /> : <ChevronUp size={18} />}
+        {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
       </button>
 
-      <nav className={`${styles.toc} ${isOpen ? styles.open : styles.closed}`}>
-        <ul>
+      <div className={`${styles.toc} ${isOpen ? styles.open : styles.closed}`}>
+        <ul className={styles.tocList}>
           {headings.map(({ id, text, level }) => (
-            <li key={id} style={{ marginLeft: (level - 1) * 16 }}>
+            <li
+              key={id}
+              className={styles.tocItem}
+              style={{ paddingLeft: (level - 1) * 16 }}>
               <a
                 href={`#${id}`}
                 title={text}
-                onClick={(e) => handleClick(e, id)}>
+                className={styles.tocLink}
+                onClick={(e) => {
+                  handleClick(e, id);
+                  if (window.innerWidth <= 768) setIsOpen(false); // автоматически закрываем на мобилке
+                }}>
                 {truncate(text)}
               </a>
             </li>
           ))}
         </ul>
-      </nav>
-    </nav>
+      </div>
+    </aside>
   );
 };
