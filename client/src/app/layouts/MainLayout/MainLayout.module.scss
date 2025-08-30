@@ -11,6 +11,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0; // Важно для flex-элементов с переполнением
 }
 
 .contentWrapper {
@@ -18,11 +19,12 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 11rem); 
+  min-height: 0; // Исправляем проблему с flex-контейнерами
 }
 
 .content {
   border-radius: $radius-md;
-  padding: 0 1rem;
   flex: 1;
+  min-width: 0; // Разрешаем сжатие контента
+  overflow-x: auto; // Горизонтальный скролл для всего контента
 }

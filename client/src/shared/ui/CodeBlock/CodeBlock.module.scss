@@ -6,6 +6,8 @@
   border: 1px solid var(--border-color);
   border-radius: $radius-md;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -43,8 +45,9 @@
 }
 
 .code {
+  display: inline-block;
+  overflow: auto;
   font-size: 0.9rem;
   line-height: 1.5;
-  overflow-x: auto;
   background: transparent;
 }

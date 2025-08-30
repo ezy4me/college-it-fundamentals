@@ -6,6 +6,7 @@
   color: var(--text-color);
   word-break: break-word;
   font-size: 1rem;
+  width: 100%;
 }
 
 .markdownH1 {
@@ -54,9 +55,7 @@
   margin-bottom: 0.5rem;
 }
 
-.markdownTable {
-  width: 100%;
-  border-collapse: collapse;
+.markdownTableWrapper {
   font-family: $font-family-base;
   background-color: var(--surface-color);
   color: var(--text-color);
@@ -64,6 +63,16 @@
   border-radius: $radius-md;
   overflow: hidden;
   margin: 1.5rem 0;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  display: flex;
+}
+
+.markdownTable {
+  border-collapse: collapse;
+  overflow: auto;
+  display: inline-block;
+
 }
 
 .markdownTable th,
@@ -71,6 +80,9 @@
   padding: 12px 16px;
   border-bottom: 1px solid var(--border-color);
   text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 200px;
 }
 
 .markdownTable tr:last-child th,
@@ -119,19 +131,11 @@
   font-style: italic;
 }
 
-.markdownPre {
-  background-color: var(--hover-bg);
-  padding: 1rem;
-  border-radius: $radius-md;
-  overflow-x: auto;
-  margin: 1rem 0;
-}
-
 .markdownDivider {
-  border: none;                    
-  height: 1px;                       
-  background-color: var(--border-color); 
-  margin: 2rem 0;                     
-  border-radius: $radius-sm;          
-  opacity: 0.6;                       
+  border: none;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 2rem 0;
+  border-radius: $radius-sm;
+  opacity: 0.6;
 }

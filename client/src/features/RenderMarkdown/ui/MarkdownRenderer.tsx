@@ -78,7 +78,9 @@ export const MarkdownRenderer = ({ markdown, headings }: Props) => {
             <blockquote {...props} className={styles.markdownBlockquote} />
           ),
           table: (props) => (
-            <table {...props} className={styles.markdownTable} />
+            <div className={styles.markdownTableWrapper}>
+              <table {...props} className={styles.markdownTable} />
+            </div>
           ),
           caption: (props) => (
             <caption {...props} className={styles.markdownTableCaption} />
