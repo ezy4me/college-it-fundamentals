@@ -1,16 +1,14 @@
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript';
 import typescript from 'react-syntax-highlighter/dist/esm/languages/hljs/typescript';
 import css from 'react-syntax-highlighter/dist/esm/languages/hljs/css';
 import bash from 'react-syntax-highlighter/dist/esm/languages/hljs/bash';
 import html from 'react-syntax-highlighter/dist/esm/languages/hljs/xml'; 
 import csharp from 'react-syntax-highlighter/dist/esm/languages/hljs/csharp';
-
 import { useState, useEffect } from 'react';
 import type { FC, ReactNode } from 'react';
-import { Copy, Check } from 'lucide-react';
+import { Copy, Check, Eye, Code } from 'lucide-react';
 import styles from './CodeBlock.module.scss';
 
 SyntaxHighlighter.registerLanguage('js', js);
@@ -47,6 +45,7 @@ export const CodeBlock: FC<CodeBlockProps> = ({ className = '', children, ...pro
   const codeText = String(children).replace(/\n$/, '');
 
   const [copied, setCopied] = useState(false);
+  const [viewMode, setViewMode] = useState<'code' | 'preview'>('code');
 
   const handleCopy = async () => {
     try {
@@ -55,6 +54,10 @@ export const CodeBlock: FC<CodeBlockProps> = ({ className = '', children, ...pro
     } catch {
       console.error('COPY ERROR');
     }
+  };
+
+  const toggleViewMode = () => {
+    setViewMode(prev => prev === 'code' ? 'preview' : 'code');
   };
 
   useEffect(() => {
@@ -67,31 +70,55 @@ export const CodeBlock: FC<CodeBlockProps> = ({ className = '', children, ...pro
   if (match) {
     const language = match[1];
     const label = LANGUAGE_LABELS[language.toLowerCase()] ?? language;
+    const isHtml = ['html', 'xml'].includes(language.toLowerCase());
 
     return (
       <div className={styles.wrapper}>
         <div className={styles.header}>
           <span className={styles.language}>{label}</span>
-          <button
-            className={styles.copyBtn}
-            onClick={handleCopy}
-            aria-label="Скопировать код"
-            type="button"
-          >
-            {copied ? <Check size={16} /> : <Copy size={16} />}
-          </button>
+          <div className={styles.controls}>
+            {isHtml && (
+              <button
+                className={styles.viewToggleBtn}
+                onClick={toggleViewMode}
+                aria-label={viewMode === 'code' ? 'Показать превью' : 'Показать код'}
+                type="button"
+              >
+                {viewMode === 'code' ? <Eye size={16} /> : <Code size={16} />}
+              </button>
+            )}
+            <button
+              className={styles.copyBtn}
+              onClick={handleCopy}
+              aria-label="Скопировать код"
+              type="button"
+            >
+              {copied ? <Check size={16} /> : <Copy size={16} />}
+            </button>
+          </div>
         </div>
 
-        <SyntaxHighlighter
-          style={vs2015}
-          language={language}
-          PreTag="div"
-          showLineNumbers
-          className={styles.code}
-          {...props}
-        >
-          {codeText}
-        </SyntaxHighlighter>
+        {viewMode === 'code' ? (
+          <SyntaxHighlighter
+            style={vs2015}
+            language={language}
+            PreTag="div"
+            showLineNumbers
+            className={styles.code}
+            {...props}
+          >
+            {codeText}
+          </SyntaxHighlighter>
+        ) : (
+          <div className={styles.preview}>
+            <iframe
+              srcDoc={codeText}
+              title="HTML Preview"
+              className={styles.previewIframe}
+              sandbox="allow-scripts allow-same-origin"
+            />
+          </div>
+        )}
       </div>
     );
   }

@@ -18,7 +18,7 @@
   color: #eee;
   font-size: 0.75rem;
   font-weight: 500;
-  padding: 0.6rem 0.6rem 0rem 0.6rem;
+  padding: 0.6rem;
 }
 
 .language {
@@ -26,7 +26,14 @@
   font-size: 0.9rem;
 }
 
-.copyBtn {
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.copyBtn,
+.viewToggleBtn {
   background: transparent;
   color: #ccc;
   border: none;
@@ -50,4 +57,19 @@
   font-size: 0.9rem;
   line-height: 1.5;
   background: transparent;
+  margin: 0;
+}
+
+.preview {
+  display: flex;
+  align-items: center;
+  min-height: 200px;
+  justify-content: center;
+}
+
+.previewIframe {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  border: none;
 }
