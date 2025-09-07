@@ -1,4 +1,4 @@
-@use '@/app/styles/variables/base' as *;
+@use "@/app/styles/variables/base" as *;
 
 .wrapper {
   display: flex;
@@ -11,20 +11,19 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-width: 0; // Важно для flex-элементов с переполнением
+  min-width: 0;
 }
 
 .contentWrapper {
   flex: 1;
-  padding: 1rem;
+  padding: 0rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
-  min-height: 0; // Исправляем проблему с flex-контейнерами
+  min-height: 0;
 }
 
 .content {
   border-radius: $radius-md;
   flex: 1;
-  min-width: 0; // Разрешаем сжатие контента
-  overflow-x: auto; // Горизонтальный скролл для всего контента
+  min-width: 0;
 }
