@@ -64,6 +64,7 @@ export const sections: Section[] = [
       lectures: [
         { id: "lec1", title: "Введение в веб-технологии [1]" },
         { id: "lec2", title: "Работа браузера и семантический HTML [2]" },
+        { id: "lec3", title: "Основы CSS: стилизация и каскадность [3]" },
       ],
     },
   },
