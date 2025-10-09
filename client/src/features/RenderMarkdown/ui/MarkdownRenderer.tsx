@@ -3,12 +3,15 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { CodeBlock } from "@/shared/ui/CodeBlock";
 import { ImageBlock } from "@/shared/ui/ImageBlock";
+import { Download } from "lucide-react";
 import styles from "./MarkdownRenderer.module.scss";
 import type { HeadingInfo } from "../lib/extractHeadings";
 
 interface Props {
   markdown: string;
   headings: HeadingInfo[];
+  onDownloadPdf?: () => void;
+  isDownloading?: boolean;
 }
 
 function getText(children: React.ReactNode): string {
@@ -37,7 +40,18 @@ function getHeadingIdByText(
   return match?.id;
 }
 
-export const MarkdownRenderer = ({ markdown, headings }: Props) => {
+export const MarkdownRenderer = ({
+  markdown,
+  headings,
+  onDownloadPdf,
+  isDownloading = false,
+}: Props) => {
+  const handleDownload = () => {
+    if (onDownloadPdf) {
+      onDownloadPdf();
+    }
+  };
+
   return (
     <div className={styles.markdown}>
       <ReactMarkdown
@@ -47,9 +61,24 @@ export const MarkdownRenderer = ({ markdown, headings }: Props) => {
             const text = getText(children);
             const id = getHeadingIdByText(1, text, headings);
             return (
-              <h1 {...props} id={id} className={styles.markdownH1}>
-                {children}
-              </h1>
+              <div className={styles.h1Container}>
+                <h1 {...props} id={id} className={styles.markdownH1}>
+                  {children}
+                </h1>
+                {onDownloadPdf && (
+                  <button
+                    onClick={handleDownload}
+                    disabled={isDownloading}
+                    className={styles.downloadButton}
+                    title="Скачать PDF">
+                    {isDownloading ? (
+                      <div className={styles.spinner} />
+                    ) : (
+                      <Download size={20} />
+                    )}
+                  </button>
+                )}
+              </div>
             );
           },
           h2: ({ children, ...props }) => {
