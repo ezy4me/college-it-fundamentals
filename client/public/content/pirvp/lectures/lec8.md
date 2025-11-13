@@ -111,7 +111,7 @@ HTML-форма — это область на странице, где поль
 | `pattern` | Регулярное выражение для проверки значения |
 | `maxlength` | Максимальная длина ввода |
 
-![Пример формы](https://cithub.ru/api/files/lec_8_14_1.png)
+![Пример формы](https://cithub.ru/api/files/lec_8_14_1.png.png)
 
 ---
 
@@ -167,7 +167,7 @@ console.log(nameInput.value);
 </script>
 ```
 
-![Уведомление](https://cithub.ru/api/files/lec_8_23_1.png)
+![Уведомление](https://cithub.ru/api/files/lec_8_23_1.png.png)
 
 
 **Пример: валидация при потере фокуса**
@@ -197,7 +197,7 @@ input.addEventListener('focus', () => {
 });
 ```
 
-![Отображение ошибки](https://cithub.ru/api/files/lec_8_23_2.png)
+![Отображение ошибки](https://cithub.ru/api/files/lec_8_23_2.png.png)
 
 ---
 
