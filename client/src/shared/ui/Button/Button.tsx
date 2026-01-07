@@ -1,5 +1,6 @@
-import { type ButtonHTMLAttributes, type FC } from 'react';
 import clsx from 'clsx';
+import { type ButtonHTMLAttributes, type FC } from 'react';
+
 import styles from './Button.module.scss';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline';

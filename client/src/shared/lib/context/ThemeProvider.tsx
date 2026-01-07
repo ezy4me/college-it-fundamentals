@@ -1,7 +1,10 @@
 import { useState, useEffect, type ReactNode } from 'react';
+
 import { Theme } from '@/shared/const/theme';
-import { applyTheme } from '../utils/applyTheme';
+
 import { themes } from '../themes';
+import { applyTheme } from '../utils/applyTheme';
+
 import { ThemeContext } from './ThemeContext';
 
 interface ThemeProviderProps {

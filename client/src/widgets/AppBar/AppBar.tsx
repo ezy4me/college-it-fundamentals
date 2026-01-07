@@ -1,6 +1,8 @@
-import { ThemeSwitcher } from '@/shared';
-import { Breadcrumbs } from '@/features/ToggleSection';
 import { Menu } from 'lucide-react';
+
+import { Breadcrumbs } from '@/features/ToggleSection';
+import { ThemeSwitcher } from '@/shared';
+
 import styles from './AppBar.module.scss';
 
 type Props = {

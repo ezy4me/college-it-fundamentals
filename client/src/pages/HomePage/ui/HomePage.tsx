@@ -1,6 +1,8 @@
 import { useState, useMemo, type ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { sections, type SectionTab } from "@/shared/const/sections";
+
 import styles from "./HomePage.module.scss";
 
 const tabLabels: Record<SectionTab, string> = {

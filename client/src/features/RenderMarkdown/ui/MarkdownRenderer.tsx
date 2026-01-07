@@ -1,16 +1,20 @@
+import { Download, Presentation } from "lucide-react";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+
 import { CodeBlock } from "@/shared/ui/CodeBlock";
 import { ImageBlock } from "@/shared/ui/ImageBlock";
-import { Download } from "lucide-react";
+
 import styles from "./MarkdownRenderer.module.scss";
+
 import type { HeadingInfo } from "../lib/extractHeadings";
 
 interface Props {
   markdown: string;
   headings: HeadingInfo[];
   onDownloadPdf?: () => void;
+  onOpenPresentation?: () => void;
   isDownloading?: boolean;
 }
 
@@ -44,11 +48,18 @@ export const MarkdownRenderer = ({
   markdown,
   headings,
   onDownloadPdf,
+  onOpenPresentation,
   isDownloading = false,
 }: Props) => {
   const handleDownload = () => {
     if (onDownloadPdf) {
       onDownloadPdf();
+    }
+  };
+
+  const handlePresentation = () => {
+    if (onOpenPresentation) {
+      onOpenPresentation();
     }
   };
 
@@ -65,18 +76,31 @@ export const MarkdownRenderer = ({
                 <h1 {...props} id={id} className={styles.markdownH1}>
                   {children}
                 </h1>
-                {onDownloadPdf && (
-                  <button
-                    onClick={handleDownload}
-                    disabled={isDownloading}
-                    className={styles.downloadButton}
-                    title="Скачать PDF">
-                    {isDownloading ? (
-                      <div className={styles.spinner} />
-                    ) : (
-                      <Download size={20} />
+                {(onOpenPresentation || onDownloadPdf) && (
+                  <div className={styles.headerButtons}>
+                    {onOpenPresentation && (
+                      <button
+                        onClick={handlePresentation}
+                        className={styles.presentationButton}
+                        title="Открыть презентацию">
+                        <Presentation size={20} />
+                      </button>
                     )}
-                  </button>
+                    {onDownloadPdf && (
+                      <button
+                        onClick={handleDownload}
+                        disabled={isDownloading}
+                        className={styles.downloadButton}
+                        title="Скачать PDF">
+                        {isDownloading ? (
+                          <div className={styles.spinner} />
+                        ) : (
+                          <Download size={20} />
+                        )}
+                      </button>
+                    )}
+                    
+                  </div>
                 )}
               </div>
             );

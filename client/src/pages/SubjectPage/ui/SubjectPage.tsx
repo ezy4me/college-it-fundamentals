@@ -1,10 +1,12 @@
 import { useParams, NavLink, useLocation, Link } from "react-router-dom";
+
+import { ErrorMessage } from "@/entities/ErrorMessage/ui/ErrorMessage";
 import {
   sections,
   type SectionTab,
   type MaterialItem,
 } from "@/shared/const/sections";
-import { ErrorMessage } from "@/entities/ErrorMessage/ui/ErrorMessage";
+
 import styles from "./SubjectPage.module.scss";
 
 export const SubjectPage = () => {

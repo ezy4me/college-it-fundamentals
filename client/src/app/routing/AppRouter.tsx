@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import { HomePage, NotFound, SubjectPage } from '@/pages';
+
 import { AppLoaderLayout, MainLayout } from '@/app/layouts';
+import { HomePage, NotFound, SubjectPage } from '@/pages';
 import { LecturePage } from '@/pages/LecturePage';
 
 export const AppRouter = () => {

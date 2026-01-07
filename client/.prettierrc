@@ -1,0 +1,21 @@
+{
+  "semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "importOrder": [
+    "^react$",
+    "^@/(.*)$",
+    "^@app/(.*)$", 
+    "^@shared/(.*)$",
+    "^@entities/(.*)$",
+    "^@features/(.*)$",
+    "^@widgets/(.*)$",
+    "^@pages/(.*)$",
+    "^@processes/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}

@@ -1,5 +1,6 @@
-import React from "react";
 import { Loader } from "lucide-react";
+import React from "react";
+
 import styles from "./LoadingMessage.module.scss";
 
 export const LoadingMessage: React.FC = () => {

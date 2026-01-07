@@ -1,6 +1,7 @@
-import { unified } from 'unified';
 import remarkParse from 'remark-parse';
+import { unified } from 'unified';
 import { visit } from 'unist-util-visit';
+
 import type{ Root, Heading, Text, InlineCode } from 'mdast';
 
 export interface HeadingInfo {

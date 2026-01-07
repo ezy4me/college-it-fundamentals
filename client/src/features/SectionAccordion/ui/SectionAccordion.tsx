@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./SectionAccordion.module.scss";
+
 import type { Section, SectionTab } from "@/shared/const/sections";
+
+import styles from "./SectionAccordion.module.scss";
 
 const tabLabels: Record<SectionTab, string> = {
   lectures: "Лекции",

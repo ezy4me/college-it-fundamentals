@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+
 import styles from './AppLoaderLayout.module.scss';
+
 import type { ReactNode } from 'react';
 
 interface Props {

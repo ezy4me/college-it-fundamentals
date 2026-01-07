@@ -1,6 +1,8 @@
 import clsx from "clsx";
-import { sections } from "@/shared/const/sections";
+
 import { ToggleSection } from "@/features/ToggleSection";
+import { sections } from "@/shared/const/sections";
+
 import styles from "./MobileSidebar.module.scss";
 
 type Props = {

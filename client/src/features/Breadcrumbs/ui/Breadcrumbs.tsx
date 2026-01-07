@@ -1,5 +1,7 @@
 import { Link, useLocation, useParams } from "react-router-dom";
+
 import { sections, type SectionTab, type Section, type MaterialItem } from "@/shared/const/sections";
+
 import styles from "./Breadcrumbs.module.scss";
 
 interface Crumb {

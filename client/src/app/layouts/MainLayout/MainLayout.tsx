@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import styles from "./MainLayout.module.scss";
+
 import { AppBar, Footer, Sidebar, MobileSidebar } from "@/widgets";
+
+import styles from "./MainLayout.module.scss";
 
 export const MainLayout = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);

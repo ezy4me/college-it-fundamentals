@@ -1,15 +1,19 @@
+import { Copy, Check, Eye, Code } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import bash from 'react-syntax-highlighter/dist/esm/languages/hljs/bash';
+import csharp from 'react-syntax-highlighter/dist/esm/languages/hljs/csharp';
+import css from 'react-syntax-highlighter/dist/esm/languages/hljs/css';
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript';
 import typescript from 'react-syntax-highlighter/dist/esm/languages/hljs/typescript';
-import css from 'react-syntax-highlighter/dist/esm/languages/hljs/css';
-import bash from 'react-syntax-highlighter/dist/esm/languages/hljs/bash';
 import html from 'react-syntax-highlighter/dist/esm/languages/hljs/xml'; 
-import csharp from 'react-syntax-highlighter/dist/esm/languages/hljs/csharp';
-import { useState, useEffect } from 'react';
-import type { FC, ReactNode } from 'react';
-import { Copy, Check, Eye, Code } from 'lucide-react';
+import { vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
 import styles from './CodeBlock.module.scss';
+
+import type { FC, ReactNode } from 'react';
+
+
 
 SyntaxHighlighter.registerLanguage('js', js);
 SyntaxHighlighter.registerLanguage('javascript', js);

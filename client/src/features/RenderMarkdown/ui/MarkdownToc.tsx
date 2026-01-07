@@ -1,7 +1,9 @@
-import { useCallback, useState, useEffect, useRef } from "react";
-import styles from "./MarkdownToc.module.scss";
-import { type HeadingInfo } from "../lib/extractHeadings";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { useCallback, useState, useEffect, useRef } from "react";
+
+import { type HeadingInfo } from "../lib/extractHeadings";
+
+import styles from "./MarkdownToc.module.scss";
 
 interface Props {
   headings: HeadingInfo[];

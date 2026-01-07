@@ -1,5 +1,6 @@
-import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { Theme } from '@/shared/const/theme';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
+
 import styles from './ThemeSwitcher.module.scss';
 
 export const ThemeSwitcher = () => {

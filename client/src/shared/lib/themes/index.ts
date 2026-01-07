@@ -25,9 +25,9 @@ export const lightTheme = {
 export const darkTheme = {
   "--bg-color": "#181818",
   "--text-color": "#ffffff",
-  "--primary-color": "#E60576",
-  "--primary-color-hover": "#cc0563",
-  "--text-on-primary": "#ffffff",
+  "--primary-color": "#00FF88", 
+  "--primary-color-hover": "#00DD77",
+  "--text-on-primary": "#000000",
   "--secondary-color": "#FACD3D",
   "--secondary-color-hover": "#e6ba32",
   "--accent-color": "#2CCCC3",
@@ -41,7 +41,7 @@ export const darkTheme = {
   "--error-border": "#7f2a2a",
   "--error-shadow": "rgba(255, 107, 107, 0.4)",
 
-  "--toggle-ball-color": "#E60576"
+  "--toggle-ball-color": "#00FF88"
 };
 
 export const themes = {

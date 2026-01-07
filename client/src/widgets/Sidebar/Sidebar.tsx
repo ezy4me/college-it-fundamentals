@@ -1,8 +1,11 @@
-import styles from './Sidebar.module.scss';
-import { sections } from '@/shared/const/sections';
-import { ToggleSection } from '@/features/ToggleSection';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import clsx from 'clsx';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+import { ToggleSection } from '@/features/ToggleSection';
+import { sections } from '@/shared/const/sections';
+
+import styles from './Sidebar.module.scss';
+
 
 type Props = {
   isCollapsed: boolean;

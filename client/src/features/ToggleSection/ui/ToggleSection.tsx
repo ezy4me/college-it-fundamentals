@@ -1,7 +1,9 @@
 import { useState, type KeyboardEvent } from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './ToggleSection.module.scss';
+
 import type { Section, SectionTab } from '@/shared/const/sections';
+
+import styles from './ToggleSection.module.scss';
 
 const tabLabels: Record<SectionTab, string> = {
   lectures: 'Лекции',

@@ -1,4 +1,5 @@
-import { Brain, Database, Home, Laptop2 } from "lucide-react";
+import { Brain, Database, Home, Laptop2, Carrot } from "lucide-react";
+
 import type { ReactNode } from "react";
 
 export type SectionTab = "lectures" | "practices" | "labs";
@@ -73,8 +74,7 @@ export const sections: Section[] = [
         { id: "lec6", title: "Массивы и строки в JavaScript [6]" },
         {
           id: "lec7",
-          title:
-            "Функции в JavaScript: области видимости, замыкания и стек вызовов [7]",
+          title: "Функции в JavaScript: области видимости, замыкания и стек вызовов [7]",
         },
         { id: "lec8", title: "Формы и клиентская валидация [8]" },
         {
@@ -91,23 +91,41 @@ export const sections: Section[] = [
           id: "lab1",
           title: "Семантическая верстка и базовые стили [1]",
         },
-         {
+        {
           id: "lab2",
           title: "Создание адаптивного веб-дизайна [2]",
         },
-         {
+        {
           id: "lab3",
           title: "Взаимодействие с DOM [3]",
         },
-         {
+        {
           id: "lab4",
           title: "Форма и валидация данных [4]",
         },
-         {
+        {
           id: "lab5",
           title: "Асинхронная загрузка данных [5]",
         },
       ],
+    },
+  },
+  {
+    id: "isrpo",
+    title: "ИСРПО",
+    icon: () => <Carrot size={18} />,
+    tabs: {
+      lectures: "/isrpo/lectures",
+      labs: "/isrpo/labs",
+    },
+    content: {
+      lectures: [
+        {
+          id: "lec1",
+          title: "Введение в Git",
+        },
+      ],
+      labs: [],
     },
   },
 ];
