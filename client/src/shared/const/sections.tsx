@@ -85,9 +85,13 @@ export const sections: Section[] = [
           id: "lec10",
           title: "Современный frontend — фреймворки и инструменты сборки [10]",
         },
-          {
+        {
           id: "lec11",
           title: "Архитектура веб-приложений и REST API [11]",
+        },
+        {
+          id: "lec12",
+          title: "Введение в серверную разработку: Node.js, Express.js и ORM [12]",
         },
       ],
       labs: [
