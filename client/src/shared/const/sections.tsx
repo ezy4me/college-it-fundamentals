@@ -93,6 +93,10 @@ export const sections: Section[] = [
           id: "lec12",
           title: "Введение в серверную разработку: Node.js, Express.js и ORM [12]",
         },
+         {
+          id: "lec13",
+          title: "Основы React: JSX, компоненты, state и props [13]",
+        },
       ],
       labs: [
         {
