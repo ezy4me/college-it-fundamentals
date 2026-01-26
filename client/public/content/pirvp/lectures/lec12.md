@@ -266,6 +266,8 @@ router.get('/', userController.getAllUsers);
 module.exports = router;
 ```
 
+![](https://cithub.ru/api/files/pirvp_lec_12_24_1.png)
+
 --- 
 
 Вот ваш фрагмент, оформленный строго в вашем стиле — с правильной нумерацией, определениями в одну строку, списками, отступами и без излишеств:
@@ -412,7 +414,7 @@ await User.destroy({ where: { id: 1 } });
 - `npm init` — задаёт вопросы (имя проекта, версия, описание и т.д.).  
 - `npm init -y` — создаёт `package.json` сразу со стандартными значениями (`name`: имя папки, `version`: `1.0.0` и т.д.).
 
-![Инициализация package.json](https://cithub.ru/api/files/вомбат.jpg)
+![Инициализация package.json](https://cithub.ru/api/files/pirvp_lec_12_4_1.png)
 
 Для работы с Express и PostgreSQL требуются следующие пакеты:  
 - **express** — фреймворк для создания веб-приложений и API на Node.js.  
@@ -422,7 +424,7 @@ await User.destroy({ where: { id: 1 } });
 
 После установки пакеты сохраняются в `node_modules` и добавляются в раздел `dependencies` файла `package.json`.
 
-![Установка зависимостей](https://cithub.ru/api/files/вомбат.jpg)
+![Установка зависимостей](https://cithub.ru/api/files/pirvp_lec_12_4_2.png)
 
 Для автоматического перезапуска сервера при разработке устанавливается `nodemon`:
 
@@ -430,7 +432,7 @@ await User.destroy({ where: { id: 1 } });
 
 - Флаг `-D` (или `--save-dev`) указывает, что пакет устанавливается только для разработки (`devDependencies`) и не будет использоваться в production.
 
-![Установка dev зависимостей](https://cithub.ru/api/files/вомбат.jpg)
+![Установка dev зависимостей](https://cithub.ru/api/files/pirvp_lec_12_4_3.png)
 
 Проект построен по архитектуре **MVC** с чётким разделением на слои:
 
@@ -464,9 +466,9 @@ await User.destroy({ where: { id: 1 } });
 - `package.json` — метаданные проекта, зависимости, скрипты.  
 - `package-lock.json` — зафиксированные версии пакетов.
 
-![Базовая архитектура сервера](https://cithub.ru/api/files/вомбат.jpg)
+![Базовая архитектура сервера](https://cithub.ru/api/files/pirvp_lec_12_4_4.png)
 
-![Настройка скриптов для запуска](https://cithub.ru/api/files/вомбат.jpg)
+![Настройка скриптов для запуска](https://cithub.ru/api/files/pirvp_lec_12_4_5.png)
 
 Файл `db.js` создаёт соединение с PostgreSQL через Sequelize:  
 - Пользователь: `postgres`  
@@ -476,7 +478,7 @@ await User.destroy({ where: { id: 1 } });
 
 Экспортируемый объект делает подключение доступным для всего приложения.
 
-![Подключение к БД](https://cithub.ru/api/files/вомбат.jpg)
+![Подключение к БД](https://cithub.ru/api/files/pirvp_lec_12_4_6.png)
 
 Файл `user.js` описывает модель пользователя в Sequelize:  
 - `id` — автоинкрементный числовой идентификатор  
@@ -485,7 +487,7 @@ await User.destroy({ where: { id: 1 } });
 
 Модель использует подключение из `db.js`.
 
-![Создание модели User](https://cithub.ru/api/files/вомбат.jpg)
+![Создание модели User](https://cithub.ru/api/files/pirvp_lec_12_4_7.png)
 
 Файл `app.js` — основной файл сервера:
 
@@ -509,7 +511,7 @@ await User.destroy({ where: { id: 1 } });
 
 - `app.listen(3000)`
 
-![Настройка сервера](https://cithub.ru/api/files/вомбат.jpg)
+![Настройка сервера](https://cithub.ru/api/files/pirvp_lec_12_4_8.png)
 
 Файл `userController.js` реализует CRUD-операции:
 
@@ -521,7 +523,7 @@ await User.destroy({ where: { id: 1 } });
 
 Все методы обрабатывают ошибки и возвращают JSON.
 
-![CRUD операции](https://cithub.ru/api/files/вомбат.jpg)
+![CRUD операции](https://cithub.ru/api/files/pirvp_lec_12_4_9.png)
 
 Файл `userRoutes.js` определяет REST-маршруты:
 
@@ -531,7 +533,7 @@ await User.destroy({ where: { id: 1 } });
 - `PUT /:id` — обновить пользователя (с валидацией)  
 - `DELETE /:id` — удалить пользователя
 
-![Создание маршрутов](https://cithub.ru/api/files/вомбат.jpg)
+![Создание маршрутов](https://cithub.ru/api/files/pirvp_lec_12_4_10.png)
 
 Файл `validateUser.js` — middleware для валидации:
 
@@ -539,17 +541,17 @@ await User.destroy({ where: { id: 1 } });
 - При отсутствии — возвращает `400 Bad Request`  
 - При успехе — вызывает `next()` для передачи управления контроллеру
 
-![Создание middleware](https://cithub.ru/api/files/вомбат.jpg)
+![Создание middleware](https://cithub.ru/api/files/pirvp_lec_12_4_11.png)
 
-![Запуск сервера](https://cithub.ru/api/files/вомбат.jpg)
+![Запуск сервера](https://cithub.ru/api/files/pirvp_lec_12_4_12.png)
 
-![Проверка GET запроса](https://cithub.ru/api/files/вомбат.jpg)
+![Проверка GET запроса](https://cithub.ru/api/files/pirvp_lec_12_4_13.png)
 
-![Проверка POST запроса](https://cithub.ru/api/files/вомбат.jpg)
+![Проверка POST запроса](https://cithub.ru/api/files/pirvp_lec_12_4_14.png)
 
-![Проверка GET запроса с параметром](https://cithub.ru/api/files/вомбат.jpg)
+![Проверка GET запроса с параметром](https://cithub.ru/api/files/pirvp_lec_12_4_15.png)
 
-![Проверка PUT запроса](https://cithub.ru/api/files/вомбат.jpg)
+![Проверка PUT запроса](https://cithub.ru/api/files/pirvp_lec_12_4_16.png)
 
-![Проверка DELETE запроса](https://cithub.ru/api/files/вомбат.jpg)
+![Проверка DELETE запроса](https://cithub.ru/api/files/pirvp_lec_12_4_17.png)
 
