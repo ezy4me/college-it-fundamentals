@@ -93,9 +93,17 @@ export const sections: Section[] = [
           id: "lec12",
           title: "Введение в серверную разработку: Node.js, Express.js и ORM [12]",
         },
-         {
+        {
           id: "lec13",
           title: "Основы React: JSX, компоненты, state и props [13]",
+        },
+        {
+          id: "lec14",
+          title: "Работа с API в React: fetch, axios и useEffect [14]",
+        },
+        {
+          id: "lec15",
+          title: "Формы и маршрутизация в React [15]",
         },
       ],
       labs: [
@@ -136,7 +144,7 @@ export const sections: Section[] = [
           id: "lec1",
           title: "Введение в Git [1]",
         },
-         {
+        {
           id: "lec2",
           title: "Работа с удаленным репозиторием и ветки [2]",
         },
